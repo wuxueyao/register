@@ -15,14 +15,22 @@ module.exports = function (grunt) {
     },
     uglify: {
       'dist/register.js': 'register.js'
+    },
+    imagemin:{
+      files:{
+          expand:true,
+          src:['images/*.{png,jpg}'],
+          dest:'dist/'
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
 
-  grunt.registerTask('default', ['htmlmin', 'cssmin', 'uglify']);
+  grunt.registerTask('default', ['htmlmin', 'cssmin', 'uglify','imagemin']);
 };
  
 
